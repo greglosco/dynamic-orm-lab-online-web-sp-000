@@ -54,7 +54,7 @@ class InteractiveRecord
   def self.find_by(attribute)
     attribute_value = attribute.values
     attribute_value_interpolated = attribute_value.class == Fixnum ? attribute_value : "#{attribute_value}"
-    sql = "SELECT * FROM #{self.table_name} WHERE '#{attribute.key}' = '#{attribute_value_interpolated}'"
+    sql = "SELECT * FROM #{self.table_name} WHERE '#{attribute.keys}' = '#{attribute_value_interpolated}'"
     DB[:conn].execute(sql)
   end
   
